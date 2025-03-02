@@ -53,7 +53,7 @@ jobs:
             CONFIG_REPRODUCIBLE_DEBUG_INFO=y
 
             CONFIG_PACKAGE_luci=y
-            
+
             CONFIG_PACKAGE_luci-app-easymesh=y
           EOF
           make defconfig
@@ -75,13 +75,13 @@ jobs:
           make -j$(nproc) IGNORE_ERRORS=1
 
       - name: Upload bin to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bin-ipq50xx-arm
           path: bin/targets/ipq50xx/arm/*
 
       - name: Upload dl to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dl
           path: dl/*
@@ -115,7 +115,7 @@ jobs:
           git rebase --continue
 
       - name: Download bin from artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: bin-ipq50xx-arm
           path: bin/
@@ -147,13 +147,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Download dl from artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dl
           path: dl/
 
       - name: Download bin from artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: bin-ipq50xx-arm
           path: bin/targets/ipq50xx/arm/
